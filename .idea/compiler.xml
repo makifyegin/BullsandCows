@@ -9,6 +9,15 @@
       <module name="Bulls_and_Cows.Bulls_and_Cows-task-build-test-results.main" target="11" />
       <module name="Bulls_and_Cows.Bulls_and_Cows-task-build-tmp.main" target="11" />
       <module name="Bulls_and_Cows.Bulls_and_Cows-task.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Package-A_keyword_for_importing_a_class.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Package-Binary_search.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Package-Class_hierarchy.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Package-Default_packages.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Package-Package_features.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Package-Sorting_arrays.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Package-The_default_import.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Package-The_full_name_of_a_class.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Package-Theory.main" target="11" />
       <module name="Bulls_and_Cows.util.main" target="11" />
     </bytecodeTargetLevel>
   </component>
