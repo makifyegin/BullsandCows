@@ -4,14 +4,19 @@ public class Main {
 
     static void changeList(List<String> list) {
         int maxLength = 0;
+        String maxString = "";
         // write your code here
         for (String s : list) {
-            if (s.length()>maxLength) {
+            if (s.length() > maxLength) {
                 maxLength = s.length();
+                maxString = s;
             }
-
-
         }
+
+        for (int i = 0; i < list.size(); i++) {
+            list.set(i, maxString);
+        }
+
 
     }
 
