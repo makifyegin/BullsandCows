@@ -3,7 +3,15 @@ import java.util.*;
 public class Main {
 
     static void changeList(List<String> list) {
+        int maxLength = 0;
         // write your code here
+        for (String s : list) {
+            if (s.length()>maxLength) {
+                maxLength = s.length();
+            }
+
+
+        }
 
     }
 
