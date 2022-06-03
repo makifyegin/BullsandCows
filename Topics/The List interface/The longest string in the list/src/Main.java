@@ -4,6 +4,7 @@ public class Main {
 
     static void changeList(List<String> list) {
         // write your code here
+
     }
 
     /* Do not change code below */
