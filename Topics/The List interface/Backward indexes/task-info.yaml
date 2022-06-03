@@ -32,6 +32,24 @@ files:
         }
     }
   learner_created: false
+- name: src/practice.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/2782#comment
-status: Unchecked
+status: Failed
+feedback:
+  message: |
+    Failed test #1 of 12. Wrong answer
+
+    This is a sample test from the problem statement!
+
+    Test input:
+    100 202 300 401
+    0
+    Correct output:
+    100
+
+    Your code output:
+    Exception
+  time: Thu, 02 Jun 2022 10:06:14 UTC
 record: -1

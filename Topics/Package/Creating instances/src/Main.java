@@ -1,3 +1,4 @@
+
 class BigIntegerConverter {
 
     /**
@@ -5,6 +6,8 @@ class BigIntegerConverter {
      * @return BigInteger instance
      */
     public static Number getBigInteger(String number) {
-        return // create BigInteger instance here
+
+        return new java.math.BigInteger(number);
+        // create BigInteger instance here
     }
 }

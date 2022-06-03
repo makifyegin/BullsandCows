@@ -2,13 +2,21 @@ import java.util.Scanner;
 
 class ManufacturingController {
     // here you may declare a field
+    public static int count = 0;
 
     public static String requestProduct(String product) {
         // write your code here
+        count++;
+    
+
+        return count + ". " + "Requested " + product;
+
     }
 
     public static int getNumberOfProducts() {
         // write your code here
+
+        return count;
     }
 }
 

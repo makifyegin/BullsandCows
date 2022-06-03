@@ -1,7 +1,23 @@
+
+
 class Army {
 
     public static void createArmy() {
         // Create all objects here
+        new Unit("unit1");
+        new Unit("unit2");
+        new Unit("unit3");
+        new Unit("unit4");
+        new Unit("unit5");
+
+        new Knight("kninght1");
+        new Knight("kninght2");
+        new Knight("kninght3");
+
+        new General("general");
+
+        new Doctor("doctor");
+
     }
 
 

@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/209958/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Fri, 29 Apr 2022 05:58:51 UTC
+update_date: Thu, 02 Jun 2022 09:35:02 UTC
 stages:
 - id: 287
   step: 5429
@@ -67,10 +67,10 @@ topics:
   1:
   - title: Write, compile, and run
     theory_id: 3739
-  - title: Immutability
-    theory_id: 7929
   - title: Computer algorithms
     theory_id: 16547
+  - title: Immutability
+    theory_id: 7929
   - title: The big O notation
     theory_id: 16699
   - title: Data structures
@@ -121,6 +121,8 @@ topics:
     theory_id: 3621
   - title: Pseudocode
     theory_id: 15090
+  - title: Pseudocode basics
+    theory_id: 19510
   - title: Fixed-size array
     theory_id: 7255
   - title: Dynamic array
