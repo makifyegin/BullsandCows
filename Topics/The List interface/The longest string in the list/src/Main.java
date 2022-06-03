@@ -17,6 +17,11 @@ public class Main {
             list.set(i, maxString);
         }
 
+        /*
+        I can use this method instead of for loop
+        Collections.fill(list,maxString);
+         */
+
 
     }
 
