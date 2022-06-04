@@ -1,20 +1,10 @@
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static javax.swing.UIManager.get;
-
 public class Main {
 
     public static <T> T getElementByIndex(List<T> lst, int index) {
         // write your code here
-        
-
-        if (index < 0) {
-            return (index + lst.size());
-        } else {
-            return index;
-        }
-
     }
 
     /* Do not change code below */

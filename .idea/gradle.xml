@@ -8,7 +8,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="17" />
+        <option name="gradleJvm" value="#JAVA_INTERNAL" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -19,6 +19,14 @@
             <option value="$PROJECT_DIR$/Bulls and Cows/task/build/reports/tests" />
             <option value="$PROJECT_DIR$/Bulls and Cows/task/build/test-results" />
             <option value="$PROJECT_DIR$/Bulls and Cows/task/build/tmp" />
+            <option value="$PROJECT_DIR$/Topics/Array exceptions/Determine an exception" />
+            <option value="$PROJECT_DIR$/Topics/Array exceptions/Explore the standard class library" />
+            <option value="$PROJECT_DIR$/Topics/Array exceptions/Name an exception" />
+            <option value="$PROJECT_DIR$/Topics/Array exceptions/Out of bounds" />
+            <option value="$PROJECT_DIR$/Topics/Array exceptions/Statements" />
+            <option value="$PROJECT_DIR$/Topics/Array exceptions/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Array exceptions/When an exception occurs" />
+            <option value="$PROJECT_DIR$/Topics/Array exceptions/Where an exception occurs" />
             <option value="$PROJECT_DIR$/Topics/ArrayList/Concat positive numbers" />
             <option value="$PROJECT_DIR$/Topics/ArrayList/Creating list" />
             <option value="$PROJECT_DIR$/Topics/ArrayList/Find the nearest number" />
