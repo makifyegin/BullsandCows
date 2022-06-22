@@ -11,6 +11,9 @@ files:
       }
     }
   learner_created: false
+- name: src/Apple.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/1940#comment
 status: Solved
 record: -1
