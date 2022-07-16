@@ -48,6 +48,14 @@
       <module name="Bulls_and_Cows.Topics-Declaring_a_method-The_sign_of_a_number.main" target="11" />
       <module name="Bulls_and_Cows.Topics-Declaring_a_method-Theory.main" target="11" />
       <module name="Bulls_and_Cows.Topics-Declaring_a_method-Vowel_or_not.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Generics_and_Object-Boxes_are_not_just_objects.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Generics_and_Object-Correct_the_usage_of_non-generic_class.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Generics_and_Object-Instance_without_type_argument.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Generics_and_Object-Reusing_code_with_Object.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Generics_and_Object-Theory.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Generics_and_Object-What_is_a_type.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Generics_and_Object-What_is_wrong.main" target="11" />
+      <module name="Bulls_and_Cows.Topics-Generics_and_Object-Why_generics.main" target="11" />
       <module name="Bulls_and_Cows.Topics-Getters_and_setters-Account.main" target="11" />
       <module name="Bulls_and_Cows.Topics-Getters_and_setters-Choose_a_pair_of_getter_and_setter.main" target="11" />
       <module name="Bulls_and_Cows.Topics-Getters_and_setters-Theory.main" target="11" />
