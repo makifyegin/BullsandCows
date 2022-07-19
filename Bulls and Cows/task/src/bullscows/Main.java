@@ -9,20 +9,21 @@ import java.util.Scanner;
 
 public class Main {
     private static int length = 0;
+    int count = 1;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-//        ArrayList<Integer> secretCode = new ArrayList<>();
-//        secretCode.addAll(Arrays.asList(9, 3, 0, 5));
 
+        System.out.println("Please, enter the secret code's length:");
         length = scanner.nextInt();
         if (length > 10) {
             System.out.println("Error: can't generate a secret number with a length of " + length + " because there aren't enough unique digits.");
             System.exit(0);
         }
+        System.out.println("Okay, let's start a game!");
+
         long pseudoRandomNumber = 0;
         Long pseudoRandomNumber1 = null;
-
 
         do {
             pseudoRandomNumber = System.nanoTime();
@@ -39,15 +40,18 @@ public class Main {
         System.out.println("The random secret number is " + pseudoRandomNumber1 + ".");
 
 
-//        ArrayList<Integer> guessDigitList = new ArrayList<>();
-//        int cows = 0;
-//        int bulls = 0;
-//        Integer digit = 0;
-//        Integer first = scanner.nextInt();
-/*        ArrayList<Integer> arrs = convertFromStringToArrayList(first);
+        ArrayList<Integer> guessDigitList = new ArrayList<>();
+        int cows = 0;
+        int bulls = 0;
+        Integer digit = 0;
+        Integer first = scanner.nextInt();
+        ArrayList<Integer> arrs = convertFromStringToArrayList(first);
 
 
-        for (int i = 0; i < 4; i++) {
+        ArrayList<Integer> secretCode = new ArrayList<>();
+        secretCode.addAll(Arrays.asList(9, 3, 0, 5));
+
+        for (int i = 0; i < length; i++) {
 
             digit = arrs.get(i);
             guessDigitList.add(digit);
@@ -103,7 +107,6 @@ public class Main {
             System.exit(0);
         }
 
-    */
 
     }
 
@@ -139,7 +142,6 @@ public class Main {
         boolean unique = false;
         String a = pseudoRandomNumber.toString();
         char[] a1 = a.toCharArray();
-
 
 
         for (int i = 0; i < a.length(); i++) {
