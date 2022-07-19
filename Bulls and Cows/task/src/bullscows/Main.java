@@ -1,14 +1,11 @@
 package bullscows;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 
 public class Main {
-    private static int length = 0;
     int count = 1;
 
     public static void main(String[] args) {
@@ -18,7 +15,7 @@ public class Main {
         System.out.println("Please, enter the secret code's length:");
 
 
-        length = scanner.nextInt();
+        int length = scanner.nextInt();
 
         if (length > 10) {
             System.out.println("Error: can't generate a secret number with a length of " + length + " because there aren't enough unique digits.");
@@ -34,7 +31,7 @@ public class Main {
             pseudoRandomNumber = System.nanoTime();
             pseudoRandomNumber1 = (Long) pseudoRandomNumber;
             a = pseudoRandomNumber1.toString();
-            a = a.substring(0, length);
+            a = a.substring(1, length+1);
 
 
             pseudoRandomNumber1 = pseudoRandomNumber1.valueOf(a);
@@ -48,10 +45,11 @@ public class Main {
         int bulls = 0;
         Long digit = pseudoRandomNumber1;
         System.out.println("Okay, let's start a game!");
+        System.out.println("pseudoRandomNumber1 = " + pseudoRandomNumber1);
         do {
 
 
-//            System.out.println("pseudoRandomNumber1 = " + pseudoRandomNumber1);
+
 
 
             System.out.println("Turn " + count + ":");
@@ -64,58 +62,45 @@ public class Main {
 
 
             for (int i = 0; i < length; i++) {
-
-                digit = arrs.get(i);
-                guessDigitList1.add(digit);
-                if (secretCode.contains(digit)) {
-                    if (guessDigitList1.indexOf(digit) == guessDigitList1.lastIndexOf(digit)) {
-                        if (guessDigitList1.indexOf(digit) != secretCode.indexOf(digit)) {
-                            cows++;
-                        }
-                    } else {
-                        if (i >= 1) {
-                            if (guessDigitList1.get(i - 1).equals(guessDigitList1.get(i))) {
-                                if (guessDigitList1.lastIndexOf(digit) != secretCode.lastIndexOf(digit)) {
-                                    cows++;
+                try {
+                    digit = arrs.get(i);
+                    guessDigitList1.add(digit);
+                    if (secretCode.contains(digit)) {
+                        if (guessDigitList1.indexOf(digit) == guessDigitList1.lastIndexOf(digit)) {
+                            if (guessDigitList1.indexOf(digit) != secretCode.indexOf(digit)) {
+                                cows++;
+                            }
+                        } else {
+                            if (i >= 1) {
+                                if (guessDigitList1.get(i - 1).equals(guessDigitList1.get(i))) {
+                                    if (guessDigitList1.lastIndexOf(digit) != secretCode.lastIndexOf(digit)) {
+                                        cows++;
+                                    }
                                 }
                             }
                         }
+
+                        if (guessDigitList1.lastIndexOf(digit) == secretCode.indexOf(digit)) {
+                            bulls++;
+                        }
                     }
 
-                    if (guessDigitList1.lastIndexOf(digit) == secretCode.indexOf(digit)) {
-                        bulls++;
-                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+            }
+            if (bulls > 0 && cows ==0) {
+                System.out.println("Grade: " + bulls + " bull(s)..");
+            }
+            if (cows > 0 && bulls==0)  {
+                System.out.println("Grade: " + cows + " cow(s)..");
             }
 
             if (cows > 0 && bulls > 0) {
-
                 System.out.println("Grade: " + bulls + " bull(s) and " + cows + " cow(s)..");
-//
-
-
             }
-            if (bulls > 0) {
-
-                System.out.println("Grade: " + bulls + " bull(s)..");
-
-
-
-
-            }
-            if (cows > 0) {
-
-                System.out.println("Grade: " + cows + " cow(s)..");
-
-
-
-            }
-
             if (cows == 0 && bulls == 0) {
-
-                System.out.print("Grade: None.");
-//
-
+                System.out.println("Grade: None..");
             }
             count++;
 
@@ -141,14 +126,15 @@ public class Main {
 
     public static ArrayList<Long> convertFromStringToArrayList(Long first) {
 
-
-        Long firstDigit = first / 1000;
-        Long secondDigit = (first / 100) % 10;
-        Long thirdDigit = (first / 10) % 10;
-        Long fourthDigit = first % 10;
-
+String stringFirst = first.toString();
         ArrayList<Long> arrs = new ArrayList<>();
-        arrs.addAll(Arrays.asList(firstDigit, secondDigit, thirdDigit, fourthDigit));
+        for (char c : stringFirst.toCharArray()) {
+            int numericValue = Character.getNumericValue(c);
+            Integer numericValue1 = (Integer) numericValue;
+            long l = numericValue1.longValue();
+            arrs.addAll(Arrays.asList(l));
+        }
+
 
 
         return arrs;
