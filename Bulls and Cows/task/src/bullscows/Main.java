@@ -2,11 +2,13 @@ package bullscows;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 
 public class Main {
     int count = 1;
+    public static int length = 0;
 
     public static void main(String[] args) {
         int count = 1;
@@ -15,7 +17,7 @@ public class Main {
         System.out.println("Please, enter the secret code's length:");
 
 
-        int length = scanner.nextInt();
+        length = scanner.nextInt();
 
         if (length > 10) {
             System.out.println("Error: can't generate a secret number with a length of " + length + " because there aren't enough unique digits.");
@@ -27,39 +29,64 @@ public class Main {
         Long pseudoRandomNumber1 = null;
 
 
-        do {
+/*        do {
             pseudoRandomNumber = System.nanoTime();
             pseudoRandomNumber1 = (Long) pseudoRandomNumber;
             a = pseudoRandomNumber1.toString();
-            a = a.substring(1, length+1);
+            a = a.substring(1, length + 1);
 
 
             pseudoRandomNumber1 = pseudoRandomNumber1.valueOf(a);
 
-        } while (!(isUnique(pseudoRandomNumber1)));
+        } while (!(isUnique(pseudoRandomNumber1)));*/
 
-        String pseudoRandomNumber1String = pseudoRandomNumber1.toString();
 
-        ArrayList<Integer> guessDigitList = new ArrayList<>();
+        ArrayList<String> listNumber = new ArrayList<>();
+        ArrayList<String> listNumberNewLength = new ArrayList<>();
+
+        // should sure that this is bigger than length
+
+        do {
+            pseudoRandomNumber = System.nanoTime();
+            String a = String.valueOf(pseudoRandomNumber);
+            String[] split = a.split("");
+            listNumber.addAll(Arrays.asList(split));
+        } while (listNumber.size() < length);
+
+        listNumberNewLength.addAll(Arrays.asList(listNumber.get(0)));
+
+        for (int i = 1; i < listNumber.size(); i++) {
+            if (listNumberNewLength.size() == length) {
+                break;
+            }
+            if (!(listNumberNewLength.contains(listNumber.get(i)))) {
+                listNumberNewLength.addAll(Arrays.asList(listNumber.get(i)));
+            } else {
+                continue;
+
+            }
+
+        }
+        pseudoRandomNumber1 = convertFromList_StringToLong(listNumberNewLength);
+
+
+        List<Integer> guessDigitList;
         int cows = 0;
         int bulls = 0;
         Long digit = pseudoRandomNumber1;
+        System.out.println(digit);
         System.out.println("Okay, let's start a game!");
         System.out.println("pseudoRandomNumber1 = " + pseudoRandomNumber1);
         do {
 
 
-
-
-
             System.out.println("Turn " + count + ":");
 
             first = scanner.nextLong();
-            ArrayList<Long> secretCode = convertFromStringToArrayList(pseudoRandomNumber1);
-            ArrayList<Long> arrs = convertFromStringToArrayList(first);
-            ArrayList<Long> guessDigitList1 = new ArrayList<>();
-
-
+            List<Long> secretCode = convertFromStringToList(pseudoRandomNumber1);
+            List<Long> arrs = convertFromStringToList(first);
+            List<Long> guessDigitList1 = new ArrayList<>();
+            System.out.println(pseudoRandomNumber1);
 
             for (int i = 0; i < length; i++) {
                 try {
@@ -89,10 +116,10 @@ public class Main {
                     e.printStackTrace();
                 }
             }
-            if (bulls > 0 && cows ==0) {
+            if (bulls > 0 && cows == 0) {
                 System.out.println("Grade: " + bulls + " bull(s)..");
             }
-            if (cows > 0 && bulls==0)  {
+            if (cows > 0 && bulls == 0) {
                 System.out.println("Grade: " + cows + " cow(s)..");
             }
 
@@ -112,7 +139,7 @@ public class Main {
 
     public static String a = "";
 
-    public static void arrayListPrint(ArrayList<Long> secretCode) {
+    public static void ListPrint(List<Long> secretCode) {
 
 
         for (Long along : secretCode) {
@@ -123,23 +150,30 @@ public class Main {
         a = "";
 
     }
+    public static List<Long> convertFromStringToList(Long first) {
 
-    public static ArrayList<Long> convertFromStringToArrayList(Long first) {
-
-String stringFirst = first.toString();
-        ArrayList<Long> arrs = new ArrayList<>();
+        String stringFirst = first.toString();
+        List<Long> arrs = new ArrayList<>();
         for (char c : stringFirst.toCharArray()) {
             int numericValue = Character.getNumericValue(c);
             Integer numericValue1 = (Integer) numericValue;
             long l = numericValue1.longValue();
             arrs.addAll(Arrays.asList(l));
         }
-
-
-
         return arrs;
     }
 
+    public static Long convertFromList_StringToLong(List<String> first) {
+       Long pseudoRandomNumber1;
+        System.out.println(first);
+        String newS = "";
+        for (String s : first) {
+            newS+=s;
+        }
+
+        pseudoRandomNumber1 = Long.parseLong(newS);
+        return pseudoRandomNumber1;
+    }
     public static boolean isUnique(Long pseudoRandomNumber) {
 
         boolean unique = false;
@@ -162,3 +196,4 @@ String stringFirst = first.toString();
         return unique;
     }
 }
+
