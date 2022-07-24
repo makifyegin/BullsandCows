@@ -15,31 +15,15 @@ public class Main {
         Long first;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please, enter the secret code's length:");
-
-
+        
+        
         length = scanner.nextInt();
-
         if (length > 10) {
             System.out.println("Error: can't generate a secret number with a length of " + length + " because there aren't enough unique digits.");
             System.exit(0);
         }
-
-
         long pseudoRandomNumber = 0;
         Long pseudoRandomNumber1 = null;
-
-
-/*        do {
-            pseudoRandomNumber = System.nanoTime();
-            pseudoRandomNumber1 = (Long) pseudoRandomNumber;
-            a = pseudoRandomNumber1.toString();
-            a = a.substring(1, length + 1);
-
-
-            pseudoRandomNumber1 = pseudoRandomNumber1.valueOf(a);
-
-        } while (!(isUnique(pseudoRandomNumber1)));*/
-
 
         ArrayList<String> listNumber = new ArrayList<>();
         ArrayList<String> listNumberNewLength = new ArrayList<>();
@@ -67,6 +51,7 @@ public class Main {
             }
 
         }
+        
         pseudoRandomNumber1 = convertFromList_StringToLong(listNumberNewLength);
 
 
@@ -83,8 +68,8 @@ public class Main {
             System.out.println("Turn " + count + ":");
 
             first = scanner.nextLong();
-            List<Long> secretCode = convertFromStringToList(pseudoRandomNumber1);
-            List<Long> arrs = convertFromStringToList(first);
+            List<Long> secretCode = convertFromLongtoListLong(pseudoRandomNumber1);
+            List<Long> arrs = convertFromLongtoListLong(first);
             List<Long> guessDigitList1 = new ArrayList<>();
             System.out.println(pseudoRandomNumber1);
 
@@ -150,7 +135,7 @@ public class Main {
         a = "";
 
     }
-    public static List<Long> convertFromStringToList(Long first) {
+    public static List<Long> convertFromLongtoListLong(Long first) {
 
         String stringFirst = first.toString();
         List<Long> arrs = new ArrayList<>();
