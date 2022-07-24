@@ -15,8 +15,8 @@ public class Main {
         Long first;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please, enter the secret code's length:");
-        
-        
+
+
         length = scanner.nextInt();
         if (length > 10) {
             System.out.println("Error: can't generate a secret number with a length of " + length + " because there aren't enough unique digits.");
@@ -51,7 +51,7 @@ public class Main {
             }
 
         }
-        
+
         pseudoRandomNumber1 = convertFromList_StringToLong(listNumberNewLength);
 
 
@@ -59,6 +59,7 @@ public class Main {
         int cows = 0;
         int bulls = 0;
         Long digit = pseudoRandomNumber1;
+        String guessNumber;
         System.out.println(digit);
         System.out.println("Okay, let's start a game!");
         System.out.println("pseudoRandomNumber1 = " + pseudoRandomNumber1);
@@ -66,10 +67,12 @@ public class Main {
 
 
             System.out.println("Turn " + count + ":");
-
-            first = scanner.nextLong();
+            Scanner scanner1 = new Scanner(System.in);
+            guessNumber = scanner1.nextLine();
             List<Long> secretCode = convertFromLongtoListLong(pseudoRandomNumber1);
-            List<Long> arrs = convertFromLongtoListLong(first);
+
+            List<Long> arrs = new ArrayList<>();
+            arrs = convertStringToListLong(guessNumber);
             List<Long> guessDigitList1 = new ArrayList<>();
             System.out.println(pseudoRandomNumber1);
 
@@ -118,7 +121,7 @@ public class Main {
 
             cows = 0;
             bulls = 0;
-        } while (!(pseudoRandomNumber1.equals(first)));
+        } while (!(pseudoRandomNumber1.equals(Long.parseLong(guessNumber))));
         System.out.println("Congratulations! You guessed the secret code.");
     }
 
@@ -135,6 +138,7 @@ public class Main {
         a = "";
 
     }
+
     public static List<Long> convertFromLongtoListLong(Long first) {
 
         String stringFirst = first.toString();
@@ -149,16 +153,44 @@ public class Main {
     }
 
     public static Long convertFromList_StringToLong(List<String> first) {
-       Long pseudoRandomNumber1;
+        Long pseudoRandomNumber1;
         System.out.println(first);
         String newS = "";
         for (String s : first) {
-            newS+=s;
+            newS += s;
         }
 
         pseudoRandomNumber1 = Long.parseLong(newS);
         return pseudoRandomNumber1;
     }
+
+    public static List<Long> convertStringToListLong(String arg0) {
+        String b = "";
+        ArrayList<Long> a = new ArrayList<>();
+        ArrayList<String> a1 = new ArrayList<>();
+
+
+        for (int i = 0; i < arg0.length(); i++) {
+           b = "" + arg0.charAt(i);
+           a1.add(b);
+
+        }
+
+        for (int i = 0; i < a1.size(); i++) {
+            a.add(Long.parseLong(a1.get(i)));
+        }
+        System.out.println(a);
+
+
+        return a;
+    }
+
+    public static ArrayList<Long> stringToLongArray(String arg0) {
+        return null;
+
+    }
+
+
     public static boolean isUnique(Long pseudoRandomNumber) {
 
         boolean unique = false;
