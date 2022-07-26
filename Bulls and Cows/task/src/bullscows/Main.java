@@ -1,27 +1,14 @@
 package bullscows;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class Main {
+
     int count = 1;
     public static int length = 0;
 
-    public static void main(String[] args) {
-        int count = 1;
-        Long first;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please, enter the secret code's length:");
-
-
-        length = scanner.nextInt();
-        if (length > 10) {
-            System.out.println("Error: can't generate a secret number with a length of " + length + " because there aren't enough unique digits.");
-            System.exit(0);
-        }
+    public static long codeGenerator(int length) {
         long pseudoRandomNumber = 0;
         Long pseudoRandomNumber1 = null;
 
@@ -30,8 +17,11 @@ public class Main {
 
         // should sure that this is bigger than length
 
+
+        Random random = new Random();
+
         do {
-            pseudoRandomNumber = System.nanoTime();
+            pseudoRandomNumber = Math.abs(random.nextLong());
             String a = String.valueOf(pseudoRandomNumber);
             String[] split = a.split("");
             listNumber.addAll(Arrays.asList(split));
@@ -53,16 +43,30 @@ public class Main {
         }
 
         pseudoRandomNumber1 = convertFromList_StringToLong(listNumberNewLength);
+        return pseudoRandomNumber1;
+    }
 
+    public static void main(String[] args) {
+        int count = 1;
+        Long first;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please, enter the secret code's length:");
+
+
+        length = scanner.nextInt();
+        if (length > 10) {
+            System.out.println("Error: can't generate a secret number with a length of " + length + " because there aren't enough unique digits.");
+            System.exit(0);
+        }
+        Long pseudoRandomNumber1 = null;
+        pseudoRandomNumber1 = codeGenerator(length);
 
         List<Integer> guessDigitList;
         int cows = 0;
         int bulls = 0;
         Long digit = pseudoRandomNumber1;
         String guessNumber;
-        System.out.println(digit);
         System.out.println("Okay, let's start a game!");
-        System.out.println("pseudoRandomNumber1 = " + pseudoRandomNumber1);
         do {
 
 
@@ -154,7 +158,6 @@ public class Main {
 
     public static Long convertFromList_StringToLong(List<String> first) {
         Long pseudoRandomNumber1;
-        System.out.println(first);
         String newS = "";
         for (String s : first) {
             newS += s;
@@ -171,15 +174,15 @@ public class Main {
 
 
         for (int i = 0; i < arg0.length(); i++) {
-           b = "" + arg0.charAt(i);
-           a1.add(b);
+            b = "" + arg0.charAt(i);
+            a1.add(b);
 
         }
 
         for (int i = 0; i < a1.size(); i++) {
             a.add(Long.parseLong(a1.get(i)));
         }
-        System.out.println(a);
+
 
 
         return a;
@@ -189,7 +192,6 @@ public class Main {
         return null;
 
     }
-
 
     public static boolean isUnique(Long pseudoRandomNumber) {
 
@@ -212,5 +214,8 @@ public class Main {
         }
         return unique;
     }
+
+
+
 }
 
